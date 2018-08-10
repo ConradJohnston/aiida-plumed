@@ -11,9 +11,9 @@ from aiida.orm import CalculationFactory
 DiffCalculation = CalculationFactory('plumed')
 
 
-class DiffParser(Parser):
+class PlumedParser(Parser):
     """
-    Parser class for parsing output of calculation.
+    Parser class for parsing COLVAR files.
     """
 
     def __init__(self, calculation):
