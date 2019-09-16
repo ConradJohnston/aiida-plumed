@@ -7,8 +7,12 @@ Register data types via the "aiida.data" entry point in setup.json.
 
 # You can directly use or subclass aiida.orm.data.Data
 # or any other data type listed under 'verdi data'
+<<<<<<< HEAD
+from aiida.orm.data.parameter import ParameterData
+=======
 from __future__ import absolute_import
 from aiida.orm import Dict
+>>>>>>> cutter/master
 from voluptuous import Schema, Optional
 
 # A subset of diff's command line options
@@ -21,6 +25,13 @@ cmdline_options = {
 }
 
 
+<<<<<<< HEAD
+class DiffParameters(ParameterData):
+    """
+    Command line options for diff.
+    """
+
+=======
 class DiffParameters(Dict):
     """
     Command line options for diff.
@@ -30,6 +41,7 @@ class DiffParameters(Dict):
     """
 
     # "voluptuous" schema  to add automatic validation
+>>>>>>> cutter/master
     schema = Schema(cmdline_options)
 
     # pylint: disable=redefined-builtin
@@ -39,6 +51,21 @@ class DiffParameters(Dict):
 
         Usage: ``DiffParameters(dict{'ignore-case': True})``
 
+<<<<<<< HEAD
+        .. note:: As of 2017-09, the constructor must also support a single dbnode
+          argument (to reconstruct the object from a database node).
+          For this reason, positional arguments are not allowed.
+        """
+        if 'dbnode' in kwargs:
+            super(DiffParameters, self).__init__(**kwargs)
+        else:
+            # validate dictionary
+            dict = self.validate(dict)
+            super(DiffParameters, self).__init__(dict=dict, **kwargs)
+
+    def validate(self, parameters_dict):
+        """Validate command line options."""
+=======
         :param parameters_dict: dictionary with commandline parameters
         :param type parameters_dict: dict
 
@@ -57,6 +84,7 @@ class DiffParameters(Dict):
         :param type parameters_dict: dict
         :returns: validated dictionary
         """
+>>>>>>> cutter/master
         return DiffParameters.schema(parameters_dict)
 
     def cmdline_params(self, file1_name, file2_name):
@@ -65,15 +93,26 @@ class DiffParameters(Dict):
         e.g. [ '--ignore-case', 'filename1', 'filename2']
 
         :param file_name1: Name of first file
+<<<<<<< HEAD
+        :param file_name2: Name of second file
+=======
         :param type file_name1: str
         :param file_name2: Name of second file
         :param type file_name2: str
+>>>>>>> cutter/master
 
         """
         parameters = []
 
         pm_dict = self.get_dict()
         for k in pm_dict.keys():
+<<<<<<< HEAD
+            parameters += ['--' + k]
+
+        parameters += [file1_name, file2_name]
+
+        return map(str, parameters)
+=======
             if pm_dict[k]:
                 parameters += ['--' + k]
 
@@ -93,3 +132,4 @@ class DiffParameters(Dict):
         string = super(DiffParameters, self).__str__()
         string += "\n" + str(self.get_dict())
         return string
+>>>>>>> cutter/master

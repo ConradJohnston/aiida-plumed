@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 """ tests for the plugin
 
 Use the aiida.utils.fixtures.PluginTestCase class for convenient
@@ -110,3 +111,15 @@ def get_code(entry_point, computer_name='localhost'):
         code.store()
 
     return code
+=======
+""" Tests for the plugin.
+
+Includes both tests written in unittest style (test_cli.py) and tests written
+in pytest style (test_calculations.py).
+"""
+from __future__ import absolute_import
+from __future__ import print_function
+import os
+
+TEST_DIR = os.path.dirname(os.path.realpath(__file__))
+>>>>>>> cutter/master

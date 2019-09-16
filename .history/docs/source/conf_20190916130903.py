@@ -82,7 +82,11 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'aiida-plumed'
+<<<<<<< HEAD
 copyright_first_year = "2018"
+=======
+copyright_first_year = "2019"
+>>>>>>> cutter/master
 copyright_owners = "Conrad Johnston"
 
 current_year = str(time.localtime().tm_year)
@@ -288,6 +292,8 @@ latex_elements = {
 # If false, no module index is generated.
 #latex_domain_indices = True
 
+<<<<<<< HEAD
+=======
 
 def run_apidoc(_):
     """Runs sphinx-apidoc when building the documentation.
@@ -333,6 +339,7 @@ def setup(app):
     app.connect('builder-inited', run_apidoc)
 
 
+>>>>>>> cutter/master
 # -- Options for manual page output ---------------------------------------
 
 # One entry per manual page. List of tuples

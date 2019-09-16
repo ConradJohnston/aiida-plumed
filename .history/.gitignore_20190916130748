@@ -3,6 +3,7 @@
 *.swp
 *~
 .project
+*.egg*
 .DS_Store
 .coverage
 .pytest_cache

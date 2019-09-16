@@ -25,7 +25,25 @@ import aiida_plumed
 # Enable rtd mode via `export READTHEDOCS=True`
 on_rtd = os.environ.get('READTHEDOCS', None) == 'True'
 
+<<<<<<< HEAD
+if on_rtd:
+    # Back-end settings for readthedocs online documentation -
+    # we don't want to create a profile there
+    # NOTE: There can be no calls to load_dbenv() before this
+
+    os.environ['DJANGO_SETTINGS_MODULE'] = 'rtd_settings'
+    sys.path.append(os.path.split(__file__)[0])  # to find rtd_settings.py
+    from aiida.backends import settings
+    settings.IN_DOC_MODE = True
+    settings.IN_RT_DOC_MODE = True
+    settings.BACKEND = "django"
+    settings.AIIDADB_PROFILE = "default"
+
+else:
+    # import and set the theme if we're building docs locally
+=======
 if not on_rtd:  # only import and set the theme if we're building docs locally
+>>>>>>> cutter/master
     try:
         import sphinx_rtd_theme
         html_theme = 'sphinx_rtd_theme'
@@ -33,6 +51,15 @@ if not on_rtd:  # only import and set the theme if we're building docs locally
     except ImportError:
         # No sphinx_rtd_theme installed
         pass
+<<<<<<< HEAD
+    from aiida.backends import settings
+    settings.IN_DOC_MODE = True
+    # Load the dbenv. The backend should be fixed before compiling the
+    # documentation.
+    from aiida.backends.utils import load_dbenv, is_dbenv_loaded
+    if not is_dbenv_loaded():
+        load_dbenv()
+=======
     # Load the database environment by first loading the profile and then loading the backend through the manager
     from aiida.manage.configuration import get_config, load_profile
     from aiida.manage.manager import get_manager
@@ -44,6 +71,7 @@ else:
     from aiida.manage import configuration
     configuration.IN_RT_DOC_MODE = True
     configuration.BACKEND = "django"
+>>>>>>> cutter/master
 
 # -- General configuration ------------------------------------------------
 
@@ -82,7 +110,11 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'aiida-plumed'
+<<<<<<< HEAD
 copyright_first_year = "2018"
+=======
+copyright_first_year = "2019"
+>>>>>>> cutter/master
 copyright_owners = "Conrad Johnston"
 
 current_year = str(time.localtime().tm_year)
@@ -288,6 +320,8 @@ latex_elements = {
 # If false, no module index is generated.
 #latex_domain_indices = True
 
+<<<<<<< HEAD
+=======
 
 def run_apidoc(_):
     """Runs sphinx-apidoc when building the documentation.
@@ -333,6 +367,7 @@ def setup(app):
     app.connect('builder-inited', run_apidoc)
 
 
+>>>>>>> cutter/master
 # -- Options for manual page output ---------------------------------------
 
 # One entry per manual page. List of tuples

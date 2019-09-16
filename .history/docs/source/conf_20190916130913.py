@@ -288,6 +288,8 @@ latex_elements = {
 # If false, no module index is generated.
 #latex_domain_indices = True
 
+<<<<<<< HEAD
+=======
 
 def run_apidoc(_):
     """Runs sphinx-apidoc when building the documentation.
@@ -333,6 +335,7 @@ def setup(app):
     app.connect('builder-inited', run_apidoc)
 
 
+>>>>>>> cutter/master
 # -- Options for manual page output ---------------------------------------
 
 # One entry per manual page. List of tuples
