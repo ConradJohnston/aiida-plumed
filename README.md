@@ -2,6 +2,9 @@
 
 AiiDA plugin providing support for Plumed2.
 
+NOTE: This plugin is in a pre-alpha development state and is not currently usable.
+
+
 # Installation
 
 ```shell
