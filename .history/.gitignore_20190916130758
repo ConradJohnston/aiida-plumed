@@ -1,9 +1,0 @@
-*.pyc
-*.swo
-*.swp
-*~
-.project
-.DS_Store
-.coverage
-.pytest_cache
-.vscode
