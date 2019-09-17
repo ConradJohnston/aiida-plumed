@@ -8,3 +8,6 @@
 .pytest_cache
 .vscode
 .history/
+*.egg-info/
+build/
+dist/

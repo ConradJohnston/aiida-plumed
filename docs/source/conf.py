@@ -330,7 +330,8 @@ def run_apidoc(_):
 
 
 def setup(app):
-    app.connect('builder-inited', run_apidoc)
+    #app.connect('builder-inited', run_apidoc) # For now don't generate API doc
+    pass
 
 
 # -- Options for manual page output ---------------------------------------
